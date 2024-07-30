@@ -27,6 +27,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    flex-direction: row;
 }
 
 .brand {
@@ -59,7 +60,7 @@ nav {
 .nav-toggle-bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: black;
     margin: 4px 0;
     transition: 0.3s;
 }
@@ -103,6 +104,7 @@ nav ul li a:hover {
         background-color: rgba(52, 73, 94, 0.9);
         width: 200px;
         display: none;
+        padding: 10px 0;
     }
 
     nav ul li {
@@ -113,6 +115,7 @@ nav ul li a:hover {
         display: flex;
     }
 }
+
 
 .offer-section {
     margin-top: 30px;
@@ -424,5 +427,57 @@ nav ul li a:hover {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('./assets/Cairo-Regular.ttf') format('truetype');
+}
+
+li.card__button.button.button-main {
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute; /* Change position to absolute on small screens */
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgb(255 255 255 / 90%);
+        width: 200px;
+        display: none;
+        padding: 10px 0;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.1em;
+        color: #000000ad;
+        margin-right: 15px;
+    }
+    
+
+    .nav-toggle-bar {
+        width: 25px;
+        height: 3px;
+        background-color: #000000ad;
+        margin: 4px 0;
+        transition: 0.3s;
     }
 }
