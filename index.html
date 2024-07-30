@@ -1,534 +1,588 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EgyptWW-BoostingService</title>
-    <link rel="icon" href="./assets/1.jpeg">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    color: #333;
+    overflow-x: hidden;
+}
 
-            <img src="./assets/image-removebggg.png" alt="Brand Icon" class="brand-icon">
-            <h1>Wuthering Waves</h1>
-        <nav>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-            </div>
-            <ul id="nav-menu">
-                <li class="card__button button button-main" onclick="showCouponPopup()"><i class="icon-order"></i> كود خصم</li>
-                <li><a href="#Exploration">الأستكشاف</a></li>
-                <li><a href="#Leveling">التلفيل</a></li>
-                <li><a href="#Farming">التفريم</a></li>
-                <!-- <li><a href="indexStable.html">English</a></li> -->
-            </ul>
-        </nav>
-    </header>
-    <!-- Overlay -->
-    <div id="overlay" class="overlay" onclick="hideCouponPopup()"></div>
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    backdrop-filter: blur(5px);
+}
 
-    <!-- Popup -->
-    <div id="contact-popup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="hideContactPopup()">&times;</span>
-            <p style="font-weight: bold;">تواصل معي ديسكورد: holytoasty</p>
-            <p style="font-weight: bold;">او من خلال:</p>
-            <a href="https://wa.link/tqbxnc" target="_blank"> <button class="button button-green">WhatsApp</button></a>
-            <!-- <button class="button button-blue" onclick="window.location.href='https://www.facebook.com/YOUR_FACEBOOK_PROFILE'">Facebook</button> -->
-        </div>
-    </div>
-    <div id="coupon-popup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="hideCouponPopup()">&times;</span>
-            <p>ادخل كود الخصم</p>
-            <input type="text" id="coupon-code" placeholder="كود الخصم" class="coupon-input">
-            <button class="button-green" id="applyCouponBtn" onclick="applyCoupon()">استخدم كود الخصم</button>
-        </div>
-    </div>
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-direction: row;
+}
 
-    <div class="container">
-        <main>
-        </div>
-    <div class="container">
-            <section id="Exploration" class="offer-section">
-                <h2>الأستكشاف</h2>
-                <div class="offer-box">
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">Mt. Firmament</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>100% استكشاف
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">200 جنية / 5$</span>
-                                                    <span class="discounted-price">100 جنية / 2$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+.brand {
+    display: flex;
+    align-items: center;
+}
 
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">Dim Forest</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>100% استكشاف
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">300 جنية / 7$</span>
-                                                    <span class="discounted-price">150 جنية / 3.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+.brand-icon {
+    width: auto;
+    height: 34px;
+    margin-right: 15px;
+}
 
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">Central Plains</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>100% استكشاف
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">300 جنية / 7$</span>
-                                                    <span class="discounted-price">150 جنية / 3.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #000000ad;
+}
 
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">Port City of Guixu</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>100% استكشاف
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">250 جنية / 6$</span>
-                                                    <span class="discounted-price">125 جنية / 2.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+nav {
+    position: relative;
+}
 
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">Desorock Highland</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>100% استكشاف
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">250 جنية / 6$</span>
-                                                    <span class="discounted-price">125 جنية / 2.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Whining Aix's Mire</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">200 جنية / 5$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+.nav-toggle-bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+    transition: 0.3s;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Kitazano</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Jinzhou</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+nav ul li {
+    margin: 0 15px;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Gorges of Spirits</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Wuming Bay</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+nav ul li a:hover {
+    background-color: rgba(41, 128, 185, 0.7);
+    border-radius: 5px;
+    color: #fff;
+}
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">The Tiger's Maw</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(52, 73, 94, 0.9);
+        width: 200px;
+        display: none;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
 
 
-                </div>
-            </section>
+.offer-section {
+    margin-top: 30px;
+    padding: 0 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
 
-            <section id="Leveling" class="offer-section">
-                <h2>التلفيل</h2>
-                <div class="offer-box">
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">تلفيل الشخصية</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>الي رانك 6
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>كل الموارد المطلوبة</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>امن تماما</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">150 جنية / 3$</span>
-                                                    <span class="discounted-price">75 جنية / 1.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+.offer-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.offer {
+    background-color: rgba(44, 62, 80, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    width: 100%;
+}
+
+.offer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card__head {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.card__img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.card__head-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.card__title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-advantages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    color: white;
+    text-align: left;
+}
+
+.product-advantage {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.product-advantage::before {
+    content: '>';
+    color: #1abc9c;
+    margin-right: 10px;
+}
+
+.card__order {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+}
+
+.upper-cent-price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: baseline;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6e6e6e;
+    font-size: 0.6em;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.discounted-price {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: block;
+}
+
+.card__button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.card__button i {
+    margin-right: 5px;
+}
+
+.card__button:hover {
+    background-color: #2ecc71;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.discount-wrapper {
+    position: relative;
+    overflow: visible; /* Allow the discount badge to be visible */
+    display: inline-block; /* Ensure it only takes up necessary space */
+}
+
+.card-container {
+    overflow: hidden; /* Control the overflow for the card content */
+    border-radius: 10px; /* Optional: Add border radius if needed */
+}
+
+.discount-badge {
+    position: absolute;
+    top: -20px; /* Adjust this value to position the badge */
+    right: -20px; /* Adjust this value to position the badge */
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    animation: glowing 1.5s infinite alternate, glitter 3s infinite;
+    z-index: 10;
+}
+
+@keyframes glowing {
+    from {
+        box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(46, 204, 113, 1);
+    }
+}
+
+@keyframes glitter {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.button-green {
+    background-color: #28a745;
+}
+
+.button-green:hover {
+    background-color: #218838;
+}
+
+.button-blue {
+    background-color: #007bff;
+}
+
+.button-blue:hover {
+    background-color: #0056b3;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease-in-out;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Overlay */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('./assets/Cairo-Regular.ttf') format('truetype');
+}
+
+li.card__button.button.button-main {
+    margin-top: auto;
+}
 
 
-                    <!-- <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">Whining Aix's Mire</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>100% استكشاف</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>جميع المهام والحزم
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">200 جنية / 5$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+li.card__button.button.button-main {
+    margin-top: auto;
+}
 
+.card__button {
+    background-color: #27ae60;
+    color: white;
+    padding: 7px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-top: 16px;
+}
 
-                </div>
-            </section>
+.card__title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0px 0px;
+    padding: 0px;
+    /* margin-top: 0px; */
+}
 
-            <section id="Farming" class="offer-section">
-                <h2>التفريم</h2>
-                <div class="offer-box">
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">تفريم وحش C4 50 مره</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>أختار الوحش
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>احصائيات عشوائية</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>خدمة سريعة</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">250 جنية / 6$</span>
-                                                    <span class="discounted-price">125 جنية / 3$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+@media (max-width: 968px) {
+    .nav-toggle {
+        display: flex;
+    }
 
-                    <div class="discount-wrapper">
-                        <div class="discount-badge">50%</div> <!-- Add the discount badge here -->
-                        <div class="card-container">
-                            <div class="offer discounted-offer" data-discount="50">
-                                <div class="card__head">
-                                    <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                    <div class="card__head-content">
-                                        <p class="card__title">تفريم وحوش C3 - C1</p>
-                                        <ul class="product-advantages card__bullits">
-                                            <li class="product-advantage"><i class="icon-level"></i>أختار الوحش
-                                            </li>
-                                            <li class="product-advantage"><i class="icon-price"></i>احصائيات عشوائية</li>
-                                            <li class="product-advantage"><i class="icon-safety"></i>خدمة سريعة</li>
-                                        </ul>
-                                        <div class="card__order">
-                                            <span class="upper-cent-price card__price">
-                                                <span class="upper-cent-price__body">
-                                                    <span class="old-price">300 جنية / 7$</span>
-                                                    <span class="discounted-price">150 جنية / 3.5$</span>
-                                                </span>
-                                            </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    nav {
+        position: absolute; /* Change position to absolute on small screens */
+    }
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">تفريم اي دومين</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>اختار الدومين</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>امن تماما وسريع
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">150 جنية / 3$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgb(255 255 255 / 90%);
+        width: 200px;
+        display: none;
+        padding: 10px 0;
+    }
 
-                    <div class="card-container">
-                        <div class="offer nondiscounted-offer">
-                            <div class="card__head">
-                                <img src="./assets/2.jpeg" alt="Background" class="card__img-bg">
-                                <div class="card__head-content">
-                                    <p class="card__title">داتا بانك ماكس</p>
-                                    <ul class="product-advantages card__bullits">
-                                        <li class="product-advantage"><i class="icon-level"></i>الي لفل 21</li>
-                                        <li class="product-advantage"><i class="icon-price"></i>كله ذهبي 🥰
-                                        </li>
-                                        <li class="product-advantage"><i class="icon-safety"></i>سعر عادل</li>
-                                    </ul>
-                                    <div class="card__order">
-                                        <span class="upper-cent-price card__price">
-                                            <span class="upper-cent-price__body">
-                                                <span class="original-price">250 جنية / 5$</span>
-                                            </span>
-                                        </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i class="icon-order"></i> اطلب الان</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    <script src="scripts.js"></script>
+    .brand {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.1em;
+        color: rgb(37, 163, 90);
+        margin-right: 15px;
+    }
     
-    <div id="overlay" class="overlay"></div>
 
-        <!-- asdsxad -->
+    .nav-toggle-bar {
+        width: 25px;
+        height: 3px;
+        background-color: #000000ad;
+        margin: 4px 0;
+        transition: 0.3s;
+    }
+
+    .card__title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0px 0px;
+    padding: 0px;
+    margin: -15px;
+
+    .card__head {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.card__img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.card__head-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 65px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.card__title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-advantages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    color: white;
+    text-align: left;
+}
+
+.product-advantage {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.product-advantage::before {
+    content: '>';
+    color: #1abc9c;
+    margin-right: 10px;
+}
+
+.card__order {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    margin-inline-end: 0px;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+}
+.card__head {
+    position: relative;
+    width: 100%;
+    height: 13.2em;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+}
+}
