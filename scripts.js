@@ -1,5 +1,5 @@
 const coupons = {
-  Crook: { name: "tzc", discountPercentage: 50 },
+  tzc: { name: "tzc", discountPercentage: 50 },
   SAVE20: { name: "SAVE20", discountPercentage: 20 },
 };
 
