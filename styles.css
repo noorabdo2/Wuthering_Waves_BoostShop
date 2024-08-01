@@ -467,7 +467,7 @@ li.card__button.button.button-main {
     .brand-icon {
         width: auto;
         height: 34px;
-        margin-right: 71%;
+        margin-right: auto;
     }
 
     .nav-toggle {
@@ -496,10 +496,7 @@ li.card__button.button.button-main {
     }
 
     header h1 {
-        margin: 0;
-        font-size: 0px;
-        color: #000000ad;
-        margin-right: 15px;
+        display: none;
     }
     
 
@@ -511,4 +508,13 @@ li.card__button.button.button-main {
         transition: 0.3s;
     }
     
+    .card__head-content {
+        position: absolute;
+        height: -webkit-fill-available;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
 }
