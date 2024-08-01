@@ -1,7 +1,14 @@
+let currentIndex = 0;
+
 const coupons = {
-  tzc: { name: "tzc", discountPercentage: 50 },
-  SAVE20: { name: "SAVE20", discountPercentage: 20 },
+  tzc: { name: "Crook", discountPercentage: 50 },
+  SAVE50: { name: "SAVE20", discountPercentage: 20 },
 };
+
+const images = [
+  { src: "./assets/Screenshot_2.jpg", title: "Farm Echoes" },
+  { src: "./assets/1.jpeg", title: "صورة سكار xD" },
+];
 
 document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.getElementById("nav-toggle");
@@ -20,6 +27,73 @@ function showContactPopup() {
 function hideContactPopup() {
   document.getElementById("contact-popup").style.display = "none";
   document.getElementById("overlay").style.display = "none";
+}
+
+function showOrderPopup(button) {
+  const card = button.closest(".card-container");
+  const title = card.querySelector(".card__title").textContent;
+  const originalPrice = card.querySelector(".original-price");
+  const discountedPrice = card.querySelector(".discounted-price");
+
+  const orderNameInput = document.getElementById("unique-order-name");
+  const priceInput = document.getElementById("unique-price");
+
+  orderNameInput.value = title;
+  priceInput.value = originalPrice
+    ? originalPrice.textContent
+    : discountedPrice.textContent;
+
+  document.getElementById("order-receipt-popup").style.display = "block";
+}
+
+function hideOrderPopup() {
+  document.getElementById("order-receipt-popup").style.display = "none";
+}
+
+function printReceipt() {
+  const orderForm = document.getElementById("unique-order-form");
+
+  html2canvas(orderForm).then((canvas) => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = "receipt.png";
+    link.click();
+  });
+}
+
+const galleryImage = document.querySelector(".gallery-image");
+const imageTitle = document.querySelector(".image-title");
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const captionText = document.getElementById("caption");
+
+function prevImage() {
+  currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+  updateImage();
+}
+
+function nextImage() {
+  currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+  updateImage();
+}
+
+function updateImage() {
+  galleryImage.style.transform = "translateX(-100%)";
+  setTimeout(() => {
+    galleryImage.src = images[currentIndex].src;
+    imageTitle.textContent = images[currentIndex].title;
+    galleryImage.style.transform = "translateX(0)";
+  }, 500);
+}
+
+function openModal() {
+  modal.style.display = "block";
+  modalImg.src = images[currentIndex].src;
+  captionText.innerHTML = images[currentIndex].title;
+}
+
+function closeModal() {
+  modal.style.display = "none";
 }
 
 function applyCoupon() {
