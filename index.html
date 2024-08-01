@@ -7,6 +7,7 @@
     <title>EgyptWW-BoostingService</title>
     <link rel="icon" href="./assets/1.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,27 @@
     </header>
     <!-- Overlay -->
     <div id="overlay" class="overlay" onclick="hideCouponPopup()"></div>
+    <!-- Unique Popup Form -->
+    <div id="order-receipt-popup" class="unique-popup">
+        <div class="unique-popup-content">
+            <span class="unique-close" onclick="hideOrderPopup()">&times;</span>
+            <form id="unique-order-form">
+                <h2>نموذج الطلب</h2>
+                <label for="unique-order-name">اسم الاوردر</label>
+                <input type="text" id="unique-order-name" name="order-name" readonly>
 
+                <label for="unique-coupon">كوبون</label>
+                <input type="text" id="unique-coupon" name="coupon" placeholder="Enter coupon if you used any">
+
+                <label for="unique-price">السعر</label>
+                <input type="text" id="unique-price" name="price" readonly>
+
+                <button type="button" onclick="printReceipt()">طباعة الإيصال</button>
+            </form>
+            <p>من فضلك ارسل صورة الطلب علي حسابي الديسكورد holytoasty او علي رقم الواتساب</p>
+            <a href="https://wa.link/tqbxnc" target="_blank"><button class="button button-green">WhatsApp</button></a>
+        </div>
+    </div>
     <!-- Popup -->
     <div id="contact-popup" class="popup">
         <div class="popup-content">
@@ -79,8 +100,9 @@
                                                     <span class="discounted-price">100 جنية / 2$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -110,8 +132,9 @@
                                                     <span class="discounted-price">150 جنية / 3.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -141,8 +164,9 @@
                                                     <span class="discounted-price">150 جنية / 3.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,8 +196,9 @@
                                                     <span class="discounted-price">125 جنية / 2.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,8 +228,9 @@
                                                     <span class="discounted-price">125 جنية / 2.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -230,8 +256,9 @@
                                                 <span class="original-price">200 جنية / 5$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -256,8 +283,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -282,8 +310,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -308,8 +337,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -334,8 +364,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -360,8 +391,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -397,8 +429,9 @@
                                                     <span class="discounted-price">75 جنية / 1.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -461,8 +494,9 @@
                                                     <span class="discounted-price">125 جنية / 3$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -492,8 +526,9 @@
                                                     <span class="discounted-price">150 جنية / 3.5$</span>
                                                 </span>
                                             </span>
-                                            <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                    class="icon-order"></i> اطلب الان</div>
+                                            <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                                <i class="icon-order"></i> اطلب الان
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -519,8 +554,9 @@
                                                 <span class="original-price">150 جنية / 3$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -545,8 +581,9 @@
                                                 <span class="original-price">250 جنية / 5$</span>
                                             </span>
                                         </span>
-                                        <div class="card__button button button-main" onclick="showContactPopup()"><i
-                                                class="icon-order"></i> اطلب الان</div>
+                                        <div class="card__button button button-main" onclick="showOrderPopup(this)">
+                                            <i class="icon-order"></i> اطلب الان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -557,6 +594,29 @@
         </div>
     </main>
 
+    <section class="offer-section">
+        <h2>معرض الصور للأثبتات</h2>
+        <div class="container">
+            <footer class="footer">
+                <div class="gallery-container">
+                    <button class="nav-button left-button" onclick="prevImage()">&#9654;</button>
+                    <div class="image-wrapper">
+                        <h3 class="image-title">كيفية أستخدام المعرض</h3>
+                        <img class="gallery-image" src="./assets/proof-tutorial.png" alt="Gallery Image"
+                            onclick="openModal()">
+                    </div>
+                    <button class="nav-button right-button" onclick="nextImage()">&#9664;</button>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="caption"></div>
+        <img class="modal-content" id="modalImage">
+    </div>
     <script src="scripts.js"></script>
     <script src="gallery-scripts.js"></script>
 
