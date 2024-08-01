@@ -517,14 +517,28 @@ li.card__button.button.button-main {
         background: rgba(0, 0, 0, 0.6);
         color: white;
     }
+
     .card__order {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0px;
         align-items: center;
         width: 100%;
         height: auto;
-        padding: 0px;
+        padding: 10px;
         border-radius: 0 0 10px 10px;
         box-sizing: border-box;
+        justify-content: center;
+        justify-items: start;
+        margin: -3%;
+    }
+    
+    .card__price {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card__button {
+        justify-self: end;
     }
 }
