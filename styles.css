@@ -517,4 +517,14 @@ li.card__button.button.button-main {
         background: rgba(0, 0, 0, 0.6);
         color: white;
     }
+    .card__order {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        border-radius: 0 0 10px 10px;
+        box-sizing: border-box;
+    }
 }
