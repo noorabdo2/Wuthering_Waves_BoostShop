@@ -2,8 +2,8 @@ let currentIndex = 0;
 let useCoupon = "";
 const coupons = {
   tzc: { name: "Crook", discountPercentage: 50 },
-  SAVE50: { name: "SAVE20", discountPercentage: 20 },
-  Free10: { name: "Free", discountPercentage: 100 },
+  save50: { name: "SAVE20", discountPercentage: 20 },
+  free10: { name: "Free", discountPercentage: 100 },
 };
 
 const images = [
@@ -120,8 +120,8 @@ function closeModal() {
 }
 
 function applyCoupon() {
-  const couponCode = document.getElementById("coupon-code").value.trim();
-
+  let couponCode = document.getElementById("coupon-code").value.trim();
+  couponCode = couponCode.toLowerCase();
   if (coupons[couponCode]) {
     const { name, discountPercentage } = coupons[couponCode];
     const nonDiscountedOffers = document.querySelectorAll(
