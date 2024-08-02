@@ -1,13 +1,34 @@
 let currentIndex = 0;
-
+let useCoupon = "";
 const coupons = {
   tzc: { name: "Crook", discountPercentage: 50 },
   SAVE50: { name: "SAVE20", discountPercentage: 20 },
+  Free10: { name: "Free", discountPercentage: 100 },
 };
 
 const images = [
-  { src: "./assets/Screenshot_2.jpg", title: "Farm Echoes" },
-  { src: "./assets/1.jpeg", title: "صورة سكار xD" },
+  {
+    src: `.\\assets\\Farm1Screenshot_5ar-1-Echo-jue-50.jpg`,
+    title: "(1) تفريم أيكو C4",
+  },
+  {
+    src: `.\\assets\\Farm1Screenshot_6ar-2-Echo-jue-50.jpg`,
+    title: "(2) تفريم أيكو C4",
+  },
+  {
+    src: `.\\assets\\Farm1Screenshot_7ar-3-Echo-jue-50.jpg`,
+    title: "(3) تفريم أيكو C4",
+  },
+
+  {
+    src: `.\\assets\\Data-bank1Screenshot_4en-ar.jpg`,
+    title: "(1) داتا بانك ماكس",
+  },
+
+  {
+    src: `.\\assets\\Exp-1Screenshot_3ar.jpg`,
+    title: "(1) أستكشاف",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -86,6 +107,8 @@ function updateImage() {
   }, 500);
 }
 
+updateImage();
+
 function openModal() {
   modal.style.display = "block";
   modalImg.src = images[currentIndex].src;
@@ -151,6 +174,8 @@ function applyCoupon() {
       discountWrapper.appendChild(cardContainer);
     });
 
+    // Set the coupon code in the unique-coupon input field
+    document.getElementById("unique-coupon").value = couponCode;
     hideCouponPopup();
   } else {
     alert("Invalid coupon code.");
